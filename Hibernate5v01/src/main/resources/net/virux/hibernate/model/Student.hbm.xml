@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/11/2015 06:34:08 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="net.virux.hibernate.model.Student" table="student">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="firstName" type="java.lang.String">
+            <column name="first_name" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="last_name" />
+        </property>
+        <property name="section" type="java.lang.String">
+            <column name="section" />
+        </property>
+    </class>
+</hibernate-mapping>

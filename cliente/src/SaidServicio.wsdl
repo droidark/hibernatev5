@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.frida.com/Said" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.frida.com/Said" targetNamespace="http://www.frida.com/Said">
+  <wsdl:types>
+    <xs:schema xmlns:Q1="http://www.frida.com/Said" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.frida.com/Said"><xs:complexType name="objectSc"><xs:sequence><xs:element name="folioSC" type="xs:string"/><xs:element name="tipoConcentracion" type="xs:string"/><xs:element name="claveOperador" type="xs:string"/><xs:element maxOccurs="unbounded" name="region" type="Q1:regiones"/><xs:element name="err" type="Q1:errores"/></xs:sequence></xs:complexType><xs:complexType name="regiones"><xs:sequence><xs:element name="idRegion" type="xs:string"/><xs:element name="pc1Siglas" type="xs:string"/><xs:element name="pc1Central" type="xs:string"/><xs:element name="pc2Siglas" type="xs:string"/><xs:element name="pc2Central" type="xs:string"/><xs:element maxOccurs="unbounded" name="central" type="Q1:centrales"/></xs:sequence></xs:complexType><xs:complexType name="centrales"><xs:sequence><xs:element name="ncaiId" type="xs:string"/><xs:element name="ncaiSiglas" type="xs:string"/><xs:element name="ncaiCentral" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="errores"><xs:sequence><xs:element name="codigoError" type="xs:string"/><xs:element name="descripError" type="xs:string"/></xs:sequence></xs:complexType><xs:element name="objetoSaidResponse"><xs:complexType><xs:sequence><xs:element name="objSc" type="Q1:objectSc"/></xs:sequence></xs:complexType></xs:element><xs:element name="objetoSaidRequest"><xs:complexType><xs:sequence><xs:element name="pcai" type="Q1:solicitudPCAI"/></xs:sequence></xs:complexType></xs:element><xs:complexType name="solicitudPCAI"><xs:sequence><xs:element name="tipoContrato" type="xs:string"/><xs:element name="tipoConcentracion" type="xs:string"/><xs:element name="movimiento" type="xs:string"/><xs:element name="folioSC" type="xs:string"/><xs:element minOccurs="0" name="siglas"><xs:complexType><xs:sequence><xs:element maxOccurs="unbounded" name="siglaCentral" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="claveOperador" type="xs:string"/></xs:sequence></xs:complexType><xs:element name="objetoSaidConsultaContratacionColoniaResponse"><xs:complexType><xs:sequence><xs:element name="consulContratacion" type="Q1:consultaColonia"/></xs:sequence></xs:complexType></xs:element><xs:complexType name="consultaColonia"><xs:sequence><xs:element name="folioSC" type="xs:string"/><xs:element name="tipoContrato" type="xs:string"/><xs:element name="tipoConcentracion" type="xs:string"/><xs:element name="claveOperador" type="xs:string"/><xs:element maxOccurs="unbounded" name="region" type="Q1:Region"/><xs:element name="error" type="Q1:errores"/></xs:sequence></xs:complexType><xs:complexType name="Region"><xs:sequence><xs:element name="idRegion" type="xs:string"/><xs:element name="pc1Siglas" type="xs:string"/><xs:element name="pc1Central" type="xs:string"/><xs:element name="pc2Siglas" type="xs:string"/><xs:element name="pc2Central" type="xs:string"/><xs:element maxOccurs="unbounded" name="puertos1G" type="Q1:puertos1G"/><xs:element maxOccurs="unbounded" name="puertos10G" type="Q1:puertos10G"/></xs:sequence></xs:complexType><xs:complexType name="puertos1G"><xs:sequence><xs:element maxOccurs="unbounded" name="pcai" type="Q1:pcai"/></xs:sequence></xs:complexType><xs:complexType name="pcai"><xs:sequence><xs:element name="folioPcai" type="xs:string"/><xs:element maxOccurs="unbounded" name="ncai" type="Q1:ncai"/></xs:sequence></xs:complexType><xs:complexType name="ncai"><xs:sequence><xs:element name="folioNcai" type="xs:string"/><xs:element name="ncaId" type="xs:string"/><xs:element name="ncaiSiglas" type="xs:string"/><xs:element name="ncaiCentral" type="xs:string"/><xs:element name="equipoAcceso" type="xs:string"/><xs:element name="codigoConfirmacion" type="xs:string"/></xs:sequence></xs:complexType><xs:complexType name="puertos10G"><xs:sequence><xs:element maxOccurs="unbounded" name="pcai" type="Q1:pcai"/></xs:sequence></xs:complexType><xs:element name="objetoSaidConsultaContratacionColoniaRequest"><xs:complexType><xs:sequence><xs:element name="consulContrata" type="Q1:solicitudColonia"/></xs:sequence></xs:complexType></xs:element><xs:complexType name="solicitudColonia"><xs:sequence><xs:element name="tipoContrato" type="xs:string"/><xs:element name="tipoConcentracion" type="xs:string"/><xs:element name="movimiento" type="xs:string"/><xs:element name="folioSC" type="xs:string"/><xs:element minOccurs="0" name="siglas"><xs:complexType><xs:sequence><xs:element maxOccurs="unbounded" name="siglaCentral" type="xs:string"/></xs:sequence></xs:complexType></xs:element><xs:element name="claveOperador" type="xs:string"/></xs:sequence></xs:complexType></xs:schema>
+  </wsdl:types>
+  <wsdl:message name="objetoSaidConsultaContratacionColoniaResponse">
+    <wsdl:part element="tns:objetoSaidConsultaContratacionColoniaResponse" name="objetoSaidConsultaContratacionColoniaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="objetoSaidRequest">
+    <wsdl:part element="tns:objetoSaidRequest" name="objetoSaidRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="objetoSaidConsultaContratacionColoniaRequest">
+    <wsdl:part element="tns:objetoSaidConsultaContratacionColoniaRequest" name="objetoSaidConsultaContratacionColoniaRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="objetoSaidResponse">
+    <wsdl:part element="tns:objetoSaidResponse" name="objetoSaidResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SaidServicio">
+    <wsdl:operation name="objetoSaidConsultaContratacionColonia">
+      <wsdl:input message="tns:objetoSaidConsultaContratacionColoniaRequest" name="objetoSaidConsultaContratacionColoniaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:objetoSaidConsultaContratacionColoniaResponse" name="objetoSaidConsultaContratacionColoniaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="objetoSaid">
+      <wsdl:input message="tns:objetoSaidRequest" name="objetoSaidRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:objetoSaidResponse" name="objetoSaidResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SaidServicioSoap11" type="tns:SaidServicio">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="objetoSaidConsultaContratacionColonia">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="objetoSaidConsultaContratacionColoniaRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="objetoSaidConsultaContratacionColoniaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="objetoSaid">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="objetoSaidRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="objetoSaidResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SaidServicio">
+    <wsdl:port binding="tns:SaidServicioSoap11" name="SaidServicioSoap11">
+      <soap:address location="http://10.105.210.198:8080/SaidInterface/endpoints"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

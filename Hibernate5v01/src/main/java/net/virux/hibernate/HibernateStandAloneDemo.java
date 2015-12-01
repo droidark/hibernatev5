@@ -19,7 +19,6 @@ public class HibernateStandAloneDemo {
 		session.getTransaction().commit();
 		
 		session.close();
-		System.out.println("ADIOS");
-		
+		HibernateUtil.close();
 	}
 }

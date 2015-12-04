@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/12/2015 04:07:43 PM by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.telmex.wdm.model.CatWdm" table="cat_wdm">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="siglasCentral" type="java.lang.String">
+            <column name="siglas_central" />
+        </property>
+        <property name="clliCentral" type="java.lang.String">
+            <column name="clli_central" />
+        </property>
+        <property name="wdm" type="java.lang.String">
+            <column name="wdm" />
+        </property>
+        <property name="proveedorTx" type="java.lang.String">
+            <column name="proveedor_tx" />
+        </property>
+        <property name="nodoAdmConexAdsl" type="java.lang.String">
+            <column name="nodo_adm_conex_adsl" />
+        </property>
+        <property name="clliAdmConexAdsl" type="java.lang.String">
+            <column name="clli_adm_conex_adsl" />
+        </property>
+        <property name="admUninet" type="java.lang.String">
+            <column name="adm_uninet" />
+        </property>
+        <property name="clliAdmUninet" type="java.lang.String">
+            <column name="clli_adm_uninet" />
+        </property>
+        <property name="estado" type="java.lang.String">
+            <column name="estado" />
+        </property>
+        <property name="area" type="java.lang.String">
+            <column name="area" />
+        </property>
+        <property name="region" type="java.lang.String">
+            <column name="region" />
+        </property>
+        <property name="ciudad" type="java.lang.String">
+            <column name="ciudad" />
+        </property>
+        <property name="ciudad2" type="java.lang.String">
+            <column name="ciudad2" />
+        </property>
+        <property name="division" type="java.lang.String">
+            <column name="division" />
+        </property>
+        <property name="ubiNodoAdm" type="java.lang.String">
+            <column name="ubi_nodo_adm" />
+        </property>
+        <property name="sitio" type="java.lang.String">
+            <column name="sitio" />
+        </property>
+        <property name="dominioGest" type="java.lang.String">
+            <column name="dominio_gest" />
+        </property>
+        <property name="repadmConxadsl" type="java.lang.String">
+            <column name="repadm_conxadsl" />
+        </property>
+        <property name="capacidad" type="java.lang.String">
+            <column name="capacidad" />
+        </property>
+        <property name="tecnologia" type="java.lang.String">
+            <column name="tecnologia" />
+        </property>
+        <property name="nodoGne" type="java.lang.String">
+            <column name="nodo_gne" />
+        </property>
+        <property name="cllie" type="java.lang.String">
+            <column name="cllie" />
+        </property>
+        <property name="anilloPp" type="java.lang.String">
+            <column name="anillo_pp" />
+        </property>
+        <property name="tipoWdm" type="java.lang.String">
+            <column name="tipo_wdm" />
+        </property>
+        <property name="ospf" type="java.lang.String">
+            <column name="ospf" />
+        </property>
+        <property name="repisa" type="java.lang.String">
+            <column name="repisa" />
+        </property>
+        <property name="refSisa" type="java.lang.String">
+            <column name="ref_sisa" />
+        </property>
+        <property name="idNodo" type="java.lang.String">
+            <column name="id_nodo" />
+        </property>
+        <property name="ipSistema" type="java.lang.String">
+            <column name="ip_sistema" />
+        </property>
+        <property name="idInterSistema" type="java.lang.String">
+            <column name="id_inter_sistema" />
+        </property>
+        <property name="ipGestion" type="java.lang.String">
+            <column name="ip_gestion" />
+        </property>
+        <property name="idInterGestion" type="java.lang.String">
+            <column name="id_inter_gestion" />
+        </property>
+        <property name="interGest" type="java.lang.String">
+            <column name="inter_gest" />
+        </property>
+        <property name="clliEquipo" type="java.lang.String">
+            <column name="clli_equipo" />
+        </property>
+        <property name="repisaBdfo" type="java.lang.String">
+            <column name="repisa_bdfo" />
+        </property>
+        <property name="clliEquipoRepisaBdfo" type="java.lang.String">
+            <column name="clli_equipo_repisa_bdfo" />
+        </property>
+        <property name="trayectorias" type="java.lang.String">
+            <column name="trayectorias" />
+        </property>
+        <property name="estatusCns" type="java.lang.String">
+            <column name="estatus_cns" />
+        </property>
+        <property name="fase" type="java.lang.String">
+            <column name="fase" />
+        </property>
+        <property name="faseCeth" type="java.lang.String">
+            <column name="fase_ceth" />
+        </property>
+        <property name="login" type="java.lang.String">
+            <column name="login" />
+        </property>
+        <property name="fechaAlta" type="java.util.Date">
+            <column name="fecha_alta" />
+        </property>
+        <property name="fechaOperacion" type="java.util.Date">
+            <column name="fecha_operacion" />
+        </property>
+        <property name="ptoOrigenRcdt" type="java.lang.String">
+            <column name="pto_origen_rcdt" />
+        </property>
+        <property name="ipOrigenRcdt" type="java.lang.String">
+            <column name="ip_origen_rcdt" />
+        </property>
+        <property name="idPuertoOrigenRcdt" type="java.lang.String">
+            <column name="id_puerto_origen_rcdt" />
+        </property>
+        <property name="topologia" type="java.lang.String">
+            <column name="topologia" />
+        </property>
+        <property name="topologico" type="java.lang.String">
+            <column name="topologico" />
+        </property>
+        <property name="otNodo" type="java.lang.String">
+            <column name="ot_nodo" />
+        </property>
+        <property name="numOtFrida" type="java.lang.String">
+            <column name="num_ot_frida" />
+        </property>
+        <property name="observaciones" type="java.lang.String">
+            <column name="observaciones" />
+        </property>
+        <property name="fechaEstatusCns" type="java.util.Date">
+            <column name="fecha_estatus_cns" />
+        </property>
+        <property name="versionNodo" type="java.lang.String">
+            <column name="version_nodo" />
+        </property>
+        <property name="remateCd1" type="java.lang.String">
+            <column name="remate_cd1" />
+        </property>
+        <property name="longCable1" type="java.lang.String">
+            <column name="long_cable1" />
+        </property>
+        <property name="calCable1" type="java.lang.String">
+            <column name="cal_cable_1" />
+        </property>
+        <property name="bdcd1" type="java.lang.String">
+            <column name="bdcd_1" />
+        </property>
+        <property name="capBreak1" type="java.lang.String">
+            <column name="cap_break1" />
+        </property>
+        <property name="remateCd2" type="java.lang.String">
+            <column name="remate_cd2" />
+        </property>
+        <property name="longCable2" type="java.lang.String">
+            <column name="long_cable2" />
+        </property>
+        <property name="calCable2" type="java.lang.String">
+            <column name="cal_cable_2" />
+        </property>
+        <property name="bdcd2" type="java.lang.String">
+            <column name="bdcd_2" />
+        </property>
+        <property name="capBreak2" type="java.lang.String">
+            <column name="cap_break2" />
+        </property>
+        <property name="anexoOt" type="java.lang.String">
+            <column name="anexo_ot" />
+        </property>
+        <property name="pdu1CapBreak1" type="java.lang.String">
+            <column name="pdu1_cap_break1" />
+        </property>
+        <property name="pdu1PosBreak1" type="java.lang.String">
+            <column name="pdu1_pos_break1" />
+        </property>
+        <property name="pdu1PosBreak2" type="java.lang.String">
+            <column name="pdu1_pos_break2" />
+        </property>
+        <property name="pdu2CapBreak1" type="java.lang.String">
+            <column name="pdu2_cap_break1" />
+        </property>
+        <property name="pdu2PosBreak1" type="java.lang.String">
+            <column name="pdu2_pos_break1" />
+        </property>
+        <property name="pdu2PosBreak2" type="java.lang.String">
+            <column name="pdu2_pos_break2" />
+        </property>
+        <property name="pdu3CapBreak1" type="java.lang.String">
+            <column name="pdu3_cap_break1" />
+        </property>
+        <property name="pdu3PosBreak1" type="java.lang.String">
+            <column name="pdu3_pos_break1" />
+        </property>
+        <property name="pdu3PosBreak2" type="java.lang.String">
+            <column name="pdu3_pos_break2" />
+        </property>
+        <property name="bitacora" type="java.lang.String">
+            <column name="bitacora" />
+        </property>
+        <property name="numIntervencion" type="java.lang.String">
+            <column name="num_intervencion" />
+        </property>
+        <property name="neid" type="java.lang.String">
+            <column name="neid" />
+        </property>
+        <property name="repadmConxadslDet" type="java.lang.String">
+            <column name="repadm_conxadsl_det" />
+        </property>
+    </class>
+</hibernate-mapping>

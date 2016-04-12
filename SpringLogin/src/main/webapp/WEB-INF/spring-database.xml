@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd">
+		
+	<context:property-placeholder location="classpath*:database.properties"/>
+	
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" 
+			destroy-method="close">
+		<property name="driverClass" value="${driver}"/>
+		<property name="jdbcUrl" value="${url}"/>
+		<property name="user" value="${user}"/>
+		<property name="password" value="${pass}"/>
+		
+		<!-- C3P0 config -->
+		<property name="acquireIncrement" value="${acquireIncrement}"/>
+		<property name="minPoolSize" value="${minPoolSize}"/>
+		<property name="maxPoolSize" value="${maxPoolSize}"/>
+		<property name="maxIdleTime" value="${maxIdleTime}"/>
+	</bean>
+	
+	<bean id="sessionFactory" 
+			class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mappingResources">
+			<list>
+				<value>net/virux/login/model/Users.hbm.xml</value>
+				<value>net/virux/login/model/UserRole.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<!-- Hibernate : Disabling contextual LOB creation as createClob() 
+					method threw error -->
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="userDao" class="net.virux.login.dao.impl.UserDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<bean id="myUserDetailsService" class="net.virux.login.service.MyUserDetailService">
+		<property name="userDao" ref="userDao"/>
+	</bean>
+	
+	<!-- TRANSACTION MANAGER -->
+	<bean id="txManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true"/>
+			<tx:method name="find*" read-only="true"/>
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<aop:config>
+		<aop:pointcut expression="execution(* net.virux.login.service.*Service.*(..))" 
+			id="userServicePointCut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="userServicePointCut"/>
+	</aop:config>
+
+</beans>

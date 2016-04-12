@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class name="net.virux.login.model.User" table="users" catalog="virux">
+		<id name="username" type="java.lang.String">
+			<column name="username" length="45"/>
+			<generator class="assigned"/>
+		</id>
+		<property name="password" type="java.lang.String">
+			<column name="password" length="60" not-null="true"/>
+		</property>
+		<property name="enabled" type="boolean">
+			<column name="enabled" not-null="true"/>
+		</property>
+		<!-- RELACIÓN -->
+		<set name="userRole" table="user_roles" inverse="true" lazy="false" fetch="select">
+			<key>
+				<column name="username" length="45" not-null="true"/>
+			</key>
+			<one-to-many class="net.virux.login.model.UserRole"/>
+		</set>
+	</class>
+</hibernate-mapping>
